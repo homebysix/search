@@ -12,27 +12,29 @@ excluded_in_search: true
 {% for recipe in recipes %}
 
 <li class="ais-Hits-item"
-    data-name="{{ recipes[recipe].name | xml_escape }}" 
-    data-description="{{ recipes[recipe].description | xml_escape }}" 
-    data-repo="{{ recipes[recipe].repo | xml_escape }}" 
-    data-path="{{ recipes[recipe].path | xml_escape }}" 
-    data-shortname="{{ recipes[recipe].shortname | xml_escape }}" 
-    data-inferred-type="{{ recipes[recipe].inferred_type | xml_escape }}">
+    data-name="{{ recipe.name | xml_escape }}" 
+    data-description="{{ recipe.description | xml_escape }}" 
+    data-repo="{{ recipe.repo | xml_escape }}" 
+    data-path="{{ recipe.path | xml_escape }}" 
+    data-shortname="{{ recipe.shortname | xml_escape }}" 
+    data-inferred-type="{{ recipe.inferred_type | xml_escape }}">
 <div><div class="hit-name"> 
-  <a href="https://github.com/{{ recipes[recipe].repo }}/{{ recipes[recipe].path }}" target="_blank">{{ recipes[recipe].name }}</a></div>
+  <a href="https://github.com/{{ recipe.repo }}/{{ recipe.path }}" target="_blank">{{ recipe.name }}</a></div>
   <dl> 
     <dt>Name</dt>
-    <dd>{{ recipes[recipe].name }}</dd> 
+    <dd>{{ recipe.name }}</dd> 
+    <dt>Identifier</dt>
+    <dd>{{ recipe.key }}</dd> 
     <dt>Description</dt>
-    <dd>{{ recipes[recipe].description }}</dd> 
+    <dd>{{ recipe.description }}</dd> 
     <dt>Repo</dt>
-    <dd>{{ recipes[recipe].repo }}</dd> 
+    <dd>{{ recipe.repo }}</dd> 
     <dt>Path</dt>
-    <dd>{{ recipes[recipe].path }}</dd> 
+    <dd>{{ recipe.path }}</dd> 
     <dt>Shortname</dt>
-    <dd>{{ recipes[recipe].shortname }}</dd> 
+    <dd>{{ recipe.shortname }}</dd> 
     <dt>Inferred Type</dt>
-    <dd>{{ recipes[recipe].inferred_type }}</dd> 
+    <dd>{{ recipe.inferred_type }}</dd> 
   </dl> 
 </div></li>
 
