@@ -48,7 +48,3 @@
     dt::after {
         content: ":";
     }
-
-    .github-fork-ribbon::before {
-        background-color: #333;
-    }
