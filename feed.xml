@@ -8,8 +8,9 @@ layout: null
     <description>{{ site.description | xml_escape }}</description>
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
-    {% assign recipes = site.data.index.identifiers %}
-    {% for recipe in recipes limit:20 %}
+    {% assign recipes = site.data.index %}
+    {% for recipe_id in recipes.identifiers %}
+    {% assign recipe = recipes[recipe_id] %}
       <item>
         <title>{{ recipe.name | xml_escape }}</title>
         <description>
