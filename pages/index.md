@@ -10,7 +10,7 @@ excluded_in_search: true
 <div id="hits"><div><div class="ais-Hits"><ol class="ais-Hits-list">
 {% for recipe in site.data.index %}
 
-<li>recipe</li>
+<li>{{ recipe }}</li>
 
 <!-- <li class="ais-Hits-item"
     data-name="{{ recipe.name | xml_escape }}" 
