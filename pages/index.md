@@ -23,8 +23,6 @@ excluded_in_search: true
   <dl> 
     <dt>Name</dt>
     <dd>{{ recipe.name }}</dd> 
-    <dt>Identifier</dt>
-    <dd>{{ recipe.key }}</dd> 
     <dt>Description</dt>
     <dd>{{ recipe.description }}</dd> 
     <dt>Repo</dt>
