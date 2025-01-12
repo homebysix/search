@@ -10,20 +10,21 @@ layout: null
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
     {% for recipe in site.data.index.identifiers %}
       <item>
-        <title>{{ recipe.name | xml_escape }}</title>
+        <title>{{ recipe[1].name | xml_escape }}</title>
         <description>
-          {{ recipe.description | xml_escape }}
-          {{ recipe.repo | xml_escape }}
-          {{ recipe.path | xml_escape }}
-          {{ recipe.parent | xml_escape }}
-          {{ recipe.shortname | xml_escape }}
-          {{ recipe.inferred_type | xml_escape }}
-          {% if recipe.munki_display_name %}{{ recipe.munki_display_name | xml_escape }}{% endif %}
-          {% if recipe.munki_description %}{{ recipe.munki_description | xml_escape }}{% endif %}
+          {{ recipe[0] | xml_escape }}
+          {{ recipe[1].description | xml_escape }}
+          {{ recipe[1].repo | xml_escape }}
+          {{ recipe[1].path | xml_escape }}
+          {{ recipe[1].parent | xml_escape }}
+          {{ recipe[1].shortname | xml_escape }}
+          {{ recipe[1].inferred_type | xml_escape }}
+          {% if recipe[1].munki_display_name %}{{ recipe[1].munki_display_name | xml_escape }}{% endif %}
+          {% if recipe[1].munki_description %}{{ recipe[1].munki_description | xml_escape }}{% endif %}
         </description>
-        <!-- <pubDate>{{ recipe.updated_at | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate> -->
-        <link>https://github.com/{{ recipe.repo }}/{{ recipe.path }}</link>
-        <guid isPermaLink="true">https://github.com/{{ recipe.repo }}/{{ recipe.path }}</guid>
+        <!-- <pubDate>{{ recipe[1].updated_at | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate> -->
+        <link>https://github.com/{{ recipe[1].repo }}/{{ recipe[1].path }}</link>
+        <guid isPermaLink="true">https://github.com/{{ recipe[1].repo }}/{{ recipe[1].path }}</guid>
       </item>
     {% endfor %}
   </channel>
