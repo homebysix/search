@@ -5,7 +5,7 @@
 
         <h2>Recipe Types</h2>
         {% assign recipes = site.data.index.identifiers %}
-        {% assign types = {} %}
+        {% assign inferred_types = {} %}
         {% for recipe in recipes %}
             {% assign type = recipe[1].inferred_type %}
             {% if inferred_types[type] %}
