@@ -6,7 +6,7 @@
         <h2>Recipe Types</h2>
         {% assign recipes = site.data.index.identifiers %}
         <ul>
-            {% assign types = recipes | map: 'inferred_type' | uniq | sort %}
+            {% assign types = recipes | map: '1.inferred_type' | uniq %}
             {% for type in types %}
                 <li>{{ type }}</li>
             {% endfor %}
