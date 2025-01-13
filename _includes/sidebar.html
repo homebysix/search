@@ -6,8 +6,9 @@
         <h2>Recipe Types</h2>
         {% assign recipes = site.data.index.identifiers %}
         {% assign types = recipes | map: 'type' | uniq | sort %}
-        <div id="type-list"><div class="ais-RefinementList"><ul class="ais-RefinementList-list">
+        {{ types | inspect }}
+        {{/*  <div id="type-list"><div class="ais-RefinementList"><ul class="ais-RefinementList-list">
         {% for type in types %}
-        {% if type != "" %}<li class="ais-RefinementList-item"><div><label class="ais-RefinementList-label"> <input type="checkbox" class="ais-RefinementList-checkbox" value="{{ type }}"> <span class="ais-RefinementList-labelText">{{ type }}</span></label></div></li>{% endif %}{% endfor %}</ul></div></div>
+        {% if type != "" %}<li class="ais-RefinementList-item"><div><label class="ais-RefinementList-label"> <input type="checkbox" class="ais-RefinementList-checkbox" value="{{ type }}"> <span class="ais-RefinementList-labelText">{{ type }}</span></label></div></li>{% endif %}{% endfor %}</ul></div></div>  */}}
 
         <div id="stats"><div class="ais-Stats"><span class="ais-Stats-text"><span id="selected-count"></span> results found in 1ms</span></div></div></div>
