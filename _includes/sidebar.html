@@ -5,7 +5,11 @@
 
         <h2>Recipe Types</h2>
         {% assign recipes = site.data.index.identifiers %}
-        {% assign types = recipes | map: 'inferred_type' | uniq | sort %}
-        {{ types | inspect }}
+        {% assign types = recipes | group_by: 'inferred_type' %}
+        <ul>
+            {% for type in types %}
+                <li>{{ type.name }}: {{ type.items | size }}</li>
+            {% endfor %}
+        </ul>
 
         <div id="stats"><div class="ais-Stats"><span class="ais-Stats-text"><span id="selected-count"></span> results found in 1ms</span></div></div></div>
