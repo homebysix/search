@@ -5,10 +5,18 @@
 
         <h2>Recipe Types</h2>
         {% assign recipes = site.data.index.identifiers %}
+        {% assign types = {} %}
+        {% for recipe in recipes %}
+            {% assign type = recipe[1].inferred_type %}
+            {% if inferred_types[type] %}
+            {% assign inferred_types = inferred_types | merge: { type: inferred_types[type] | plus: 1 } %}
+            {% else %}
+            {% assign inferred_types = inferred_types | merge: { type: 1 } %}
+            {% endif %}
+        {% endfor %}
         <ul>
-            {% assign types = recipes | map: '1.inferred_type' | uniq %}
-            {% for type in types %}
-                <li>{{ type }}</li>
+            {% for type in inferred_types %}
+            <li>{{ type[0] }}: {{ type[1] }}</li>
             {% endfor %}
         </ul>
 
